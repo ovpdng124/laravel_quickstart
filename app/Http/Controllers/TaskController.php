@@ -39,17 +39,17 @@ class TaskController extends Controller
             return redirect(route('tasks.index'));
         }
 
-        return redirect()->back()->withErrors('Created failed!');
+        return redirect()->back()->withErrors(trans('messages.create_failed'));
     }
 
     public function destroy($id)
     {
-        $status = $this->tasks->destroy($id);
+        list($status, $message) = $this->tasks->destroy($id);
 
         if ($status) {
-            return response()->json('Deleted Success');
+            return response()->json($message);
         }
 
-        return response()->json('Deleted Failed');
+        return response()->json($message);
     }
 }

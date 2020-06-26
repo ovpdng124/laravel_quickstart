@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Model\Task;
 use App\Model\User;
+use Gate;
 use Log;
 use Exception;
 
@@ -30,13 +31,19 @@ class TaskRepository
     public function destroy($id)
     {
         try {
-            Task::find($id)->delete();
+            $task = Task::find($id);
 
-            return true;
+            if (Gate::allows('destroy', $task)) {
+                $task->delete();
+
+                return [true, trans('messages.delete_success')];
+            }
+
+            return [false, trans('messages.action_unauthorized')];
         } catch (Exception $e) {
             Log::error($e->getMessage());
 
-            return false;
+            return [false, trans('messages.delete_failed')];
         }
     }
 }

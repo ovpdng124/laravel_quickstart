@@ -22,4 +22,9 @@ return [
     'nav_toggle'               => 'Toggle navigation',
     'dashboard'                => 'Dashboard',
     'home'                     => 'Home',
+    'current_task'             => 'Current Tasks',
+    'add_task'                 => 'Add Task',
+    'task'                     => 'Task',
+    'delete'                   => 'Delete',
+    'error_message'            => 'Whoops! Something went wrong!',
 ];

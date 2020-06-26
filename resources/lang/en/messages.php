@@ -27,4 +27,8 @@ return [
     'task'                     => 'Task',
     'delete'                   => 'Delete',
     'error_message'            => 'Whoops! Something went wrong!',
+    'delete_success'           => 'Deleted Success',
+    'delete_failed'            => 'Delete Failed!',
+    'action_unauthorized'      => 'Failed: You\'re not owner',
+    'create_failed'            => 'Create failed!',
 ];
